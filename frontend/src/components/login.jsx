@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import { useAuth } from '../context/AuthContext';
 
 
+import authBg from '../assets/images/auth_bg.png';
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -51,13 +53,11 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12"
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-12"
     style={{
-      backgroundImage: `url('https://cdn.vectorstock.com/i/500p/95/08/evening-city-near-the-river-vector-6469508.avif')`,
+      backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), url(${authBg})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
-      
-      
     }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ const Login = () => {
         exit={{ opacity: 0 }}
         className="w-full max-w-md"
       >
-        <div className="bg-transparent  backdrop-blur-lg rounded-2xl shadow-xl p-8 mt-14">
+        <div className="bg-white/80 backdrop-blur-xl border border-white/30 rounded-2xl shadow-2xl p-8 mt-14">
           {/* Logo & Title */}
           <div className="text-center mb-8">
             <Link to="/" className="inline-block">
@@ -90,7 +90,7 @@ const Login = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 outline-none bg-transparent placeholder-gray-700 transition-all duration-200"
+                className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 outline-none focus:border-blue-500 focus:bg-white/90 transition-all duration-200 placeholder-gray-500 text-gray-800"
                 placeholder="name@company.com"
               />
             </div>
@@ -108,7 +108,7 @@ const Login = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 outline-none bg-transparent placeholder-gray-700 transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 outline-none focus:border-blue-500 focus:bg-white/90 transition-all duration-200 placeholder-gray-500 text-gray-800"
                   placeholder="••••••••"
                 />
                 <button
@@ -155,7 +155,7 @@ const Login = () => {
             {/* Sign Up Link */}
             <Link
               to="/signup"
-              className="w-full flex items-center justify-center px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-green-500 hover:border-gray-300 transition-all duration-200"
+              className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-white/50 hover:text-gray-900 transition-all duration-200 font-medium bg-white/20"
             >
               Create an account
             </Link>
